@@ -1,7 +1,9 @@
-<?php
+<?php 
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\test1Controller;
+use App\Http\Controllers\siswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,14 @@ Route::get('/test1', function() {
 
 //metode dengan menggunakan controller
 Route::get('/test2', [test1Controller::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/siswa',[siswaController::class, 'index'])->name('siswagaje');
+
+Route::post('/siswa/create/success',[siswaController::class, 'store'])->name('siswa.store');
+
+Route::get('/siswa/delete/success/{id}',[siswaController::class, 'destroy'])->name('siswa.delete');
+
